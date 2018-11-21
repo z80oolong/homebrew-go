@@ -2,7 +2,7 @@ class GoAT111 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
   version "1.11.1"
-  
+
   url "https://dl.google.com/go/go#{version}.src.tar.gz"
   mirror "https://fossies.org/linux/misc/go#{version}.src.tar.gz"
   sha256 "558f8c169ae215e25b81421596e8de7572bd3ba824b79add22fba6e284db1117"
@@ -25,15 +25,6 @@ class GoAT111 < Formula
     unless OS.mac?
       chmod "+x", Dir.glob("src/debug/dwarf/testdata/*.elf")
       chmod "+x", Dir.glob("src/debug/elf/testdata/*-exec")
-    end
-
-    if Hardware::CPU.is_32_bit? then
-      case Hardware::CPU.arch_32_bit
-      when :arm
-        ENV["GOHOSTARCH"] = ENV["GOARCH"] = "arm"
-      when :intel
-        ENV["GOHOSTARCH"] = ENV["GOARCH"] = "386"
-      end
     end
 
     ENV["GOROOT_BOOTSTRAP"] = "#{Formula["z80oolong/go/go-bootstrap@1.7"].opt_libexec}/go-bootstrap"

@@ -23,8 +23,12 @@ class GoBootstrapAT17 < Formula
   version "1.7"
 
   keg_only :versioned_formula
-  
+
   def install
     Pathname.glob(buildpath/"*") {|path| (libexec/"go-bootstrap").install path}
+  end
+
+  def caveats
+    "Please note that go #{version} installed by this formula is a go compiler for bootstrap which is used to build a new go compiler."
   end
 end

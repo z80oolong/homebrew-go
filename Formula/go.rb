@@ -35,15 +35,6 @@ class Go < Formula
       chmod "+x", Dir.glob("src/debug/elf/testdata/*-exec")
     end
 
-    if Hardware::CPU.is_32_bit? then
-      case Hardware::CPU.arch_32_bit
-      when :arm
-        ENV["GOHOSTARCH"] = ENV["GOARCH"] = "arm"
-      when :intel
-        ENV["GOHOSTARCH"] = ENV["GOARCH"] = "386"
-      end
-    end
-
     ENV["GOROOT_BOOTSTRAP"] = "#{Formula["z80oolong/go/go-bootstrap@1.7"].opt_libexec}/go-bootstrap"
 
     cd "src" do
