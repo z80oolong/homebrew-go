@@ -1,13 +1,19 @@
 class GoAT111 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
-  version "1.11.1"
+  version "1.11.4"
 
   url "https://dl.google.com/go/go#{version}.src.tar.gz"
   mirror "https://fossies.org/linux/misc/go#{version}.src.tar.gz"
-  sha256 "558f8c169ae215e25b81421596e8de7572bd3ba824b79add22fba6e284db1117"
+  sha256 "4cfd42720a6b1e79a8024895fa6607b69972e8e32446df76d6ce79801bbadb15"
 
   go_version = version.to_s.split(".")[0..1].join(".")
+
+  resource "gonet" do
+    url "https://go.googlesource.com/net.git",
+        :branch => "release-branch.go#{go_version}"
+  end
+
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
         :branch => "release-branch.go#{go_version}"
@@ -49,7 +55,10 @@ class GoAT111 < Formula
     # Build and install godoc
     ENV.prepend_path "PATH", bin
     ENV["GOPATH"] = buildpath
+
+    (buildpath/"src/golang.org/x/net").install resource("gonet")
     (buildpath/"src/golang.org/x/tools").install resource("gotools")
+
     cd "src/golang.org/x/tools/cmd/godoc/" do
       system "go", "build"
       (libexec/"bin").install "godoc"
