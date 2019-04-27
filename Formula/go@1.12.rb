@@ -1,28 +1,20 @@
-class Go < Formula
+class GoAT112 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
+  version "1.12.4"
 
-  stable do
-    version "1.12.4"
-    url "https://dl.google.com/go/go#{version}.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go#{version}.src.tar.gz"
-    sha256 "4affc3e610cd8182c47abbc5b0c0e4e3c6a2b945b55aaa2ba952964ad9df1467"
+  url "https://dl.google.com/go/go#{version}.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go#{version}.src.tar.gz"
+  sha256 "4affc3e610cd8182c47abbc5b0c0e4e3c6a2b945b55aaa2ba952964ad9df1467"
 
-    go_version = version.to_s.split(".")[0..1].join(".")
+  go_version = version.to_s.split(".")[0..1].join(".")
 
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git",
-          :branch => "release-branch.go#{go_version}"
-    end
+  resource "gotools" do
+    url "https://go.googlesource.com/tools.git",
+        :branch => "release-branch.go#{go_version}"
   end
 
-  head do
-    url "https://go.googlesource.com/go.git"
-
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git"
-    end
-  end
+  keg_only :versioned_formula
 
   depends_on "z80oolong/go/go-bootstrap@1.7"
 
@@ -63,7 +55,7 @@ class Go < Formula
     (buildpath/"src/golang.org/x/tools").install resource("gotools")
 
     cd "src/golang.org/x/tools/cmd/godoc/" do
-     system "go", "build"
+      system "go", "build"
       (libexec/"bin").install "godoc"
     end
     bin.install_symlink libexec/"bin/godoc"

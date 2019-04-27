@@ -20,6 +20,14 @@
 
 **この Formula は、 versioned formula であるため、この Formula によって導入される [Go 言語処理系][GO__]は、 keg only で導入されることに留意して下さい。**
 
+### z80oolong/go/go@1.12
+
+安定版のうち、 1.12.* 系の公式の [Go 言語処理系][GO__]を導入するための Formula です。
+
+この Formula も、 z80oolong/go/go と同様に、 [64 bit x86 CPU アーキテクチャ][X86P]搭載の [Linux 系 OS][LNUX] や [Mac OS][MAC_] の他、 [32 bit ARM CPU アーキテクチャ][ARMP]及び [32 bit x86 CPU アーキテクチャ][X86P]搭載の [Linux 系 OS][LNUX] への [Go 言語処理系][GO__]の導入にも対応しています。
+
+**この Formula は、 versioned formula であるため、この Formula によって導入される [Go 言語処理系][GO__]は、 keg only で導入されることに留意して下さい。**
+
 ### z80oolong/go/go-bootstrap@1.7
 
 公式の [Go 言語処理系][GO__]をビルドするための bootstrap 用の [go 1.7][GO__]を導入するための Formula であり、上述の [Go 言語処理系][GO__]を導入するための Formula に依存する Formula です。
