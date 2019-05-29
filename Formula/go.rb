@@ -3,7 +3,7 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    version "1.12.4"
+    version "1.12.5"
     url "https://dl.google.com/go/go#{version}.src.tar.gz"
     mirror "https://fossies.org/linux/misc/go#{version}.src.tar.gz"
     sha256 "4affc3e610cd8182c47abbc5b0c0e4e3c6a2b945b55aaa2ba952964ad9df1467"
