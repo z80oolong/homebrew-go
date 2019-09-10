@@ -1,11 +1,11 @@
 class GoAT111 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
-  version "1.11.4"
+  version "1.11.13"
 
   url "https://dl.google.com/go/go#{version}.src.tar.gz"
   mirror "https://fossies.org/linux/misc/go#{version}.src.tar.gz"
-  sha256 "4cfd42720a6b1e79a8024895fa6607b69972e8e32446df76d6ce79801bbadb15"
+  sha256 "5032095fd3f641cafcce164f551e5ae873785ce7b07ca7c143aecd18f7ba4076"
 
   go_version = version.to_s.split(".")[0..1].join(".")
 

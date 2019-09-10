@@ -1,6 +1,7 @@
 class GoBootstrapAT17 < Formula
   desc "Golang bootstrap compiler for Golang compiler."
   homepage "https://golang.org"
+  version "1.7"
 
   if Hardware::CPU.is_32_bit? then
     case Hardware::CPU.arch_32_bit
@@ -20,7 +21,6 @@ class GoBootstrapAT17 < Formula
       sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"                                                                   
     end
   end
-  version "1.7"
 
   keg_only :versioned_formula
 
